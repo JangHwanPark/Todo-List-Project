@@ -1,0 +1,109 @@
+/* All */
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+/* main */
+.main-content {
+    line-height: 2;
+    max-width: 100vh;   /* 최대 넓이 */
+    min-height: 100vh;  /* 최소 높이 */
+    margin: auto;       /* 중앙정렬 */
+}
+
+
+
+/* 할일 추가 */
+.main-container {
+    width: 600px;
+    height: 750px;
+    margin: auto;
+    border-radius: 5px;
+    background: linear-gradient(to top left, #ffe9f4, #ffced9);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-todo {
+    width: 25vh;
+    height: 4vh;
+    border: none;
+    font-size: 1.06rem;
+    padding: 13px 15px;
+}
+
+.input-todo:focus { /* outline(input박스클릭시) 테두리 없애기 */
+    outline: none;
+}
+
+.btn-todo {
+    width: 10vh;
+    height: 4vh;
+    border: none;
+    background-color: white;
+}
+
+.btn-todo span {
+    font-size: 1.06rem;
+}
+
+
+
+/* 추가된 리스트 */
+.add-todo-list-wrapper {
+    width: 35vh;
+    height: 79.5vh;
+    margin: auto;
+}
+
+.add-todo-list {
+    height: 90%;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+}
+
+
+/* JS로 추가한 요소 */
+.todo-list-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vh;
+    font-size: 1.06rem;
+    margin-bottom: 1vh;
+    padding: 0.5vh 0.5vh;
+    background-color: white;
+}
+
+.input-todo-value {
+    width: 30vh;
+    height: 4vh;
+}
+
+.list-finish,
+.list-delete {
+    border: none;
+    background-color: white;
+}
+
+
+
+/* Next & Back 버튼 */
