@@ -82,7 +82,7 @@ form {
 
 
 /* JS로 추가한 요소 */
-.todo-list-wrapper {
+.todo-button-element-list {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +98,6 @@ form {
     height: 4vh;
 }
 
-.list-finish,
 .list-delete {
     border: none;
     background-color: white;
