@@ -32,7 +32,7 @@ li {
     width: 600px;
     height: 750px;
     margin: auto;
-    border-radius: 5px;
+    border-radius: 15px;
     background: linear-gradient(to top left, #ffe9f4, #ffced9);
 }
 
