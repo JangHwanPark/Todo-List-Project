@@ -1,9 +1,9 @@
 /* 재료 */
 const inputTodoText = document.querySelector('.input-todo');    // input 태그
 const btnTodoSubmit = document.querySelector('.btn-todo');      // button 태그 (input 자식)
-const menuTodoBox = document.querySelector('.add-todo-list');   // 추가될 list 테두리
+const menuTodoBox = document.querySelector('.add-todo-list');   // 추가될 list 테두리 (ul)
 
-const todoValue = "todoValue";  // 로컬 스토리지 Key값
+const todoKeyValue = "todoKeyValue";  // 로컬 스토리지 Key값
 let arrayLocalStorage = [];     // 리스트를 로컬 스토리지에 추가할 빈 배열
 
 
@@ -46,15 +46,15 @@ function onAddListLocalStorage(addTodoData) {
     arrayLocalStorage.push(todoData);
 
     /* 로컬 스토리지에 KEY:Todo라는 명칭으로 "addLocalStorage"저장된 값을 JSON으로 변환하여 저장 */
-    localStorage.setItem(todoValue, JSON.stringify(arrayLocalStorage));
+    localStorage.setItem(todoKeyValue, JSON.stringify(arrayLocalStorage));
 }
 
 
 
 /* 함수선언 : 로컬 스토리지에서 요소 삭제 함수 */
 function loadTodoLocalStorage() {
-    /* 로컬 스토리지에서 키값이"todoValue"로 저장된 데이터가 있는지 보고, 있다면 동작을 수행한다. */
-    const loadLocalStorage = localStorage.getItem(todoValue);
+    /* 로컬 스토리지에서 키값이"todoKeyValue"로 저장된 데이터가 있는지 보고, 있다면 동작을 수행한다. */
+    const loadLocalStorage = localStorage.getItem(todoKeyValue);
 
     /* "loadLocalStorage"값이 비어있지 않다면 아래 코드를 실행 (로컬 스토리지가 비어있지 않다면) */
     if (loadLocalStorage !== null) {
@@ -87,20 +87,18 @@ function dltTodoListClear() {
 function dltTodoListDelete(dltEvent) {
     /* "dltEvent(button)"인자를 받는다. */
     const dltButton = dltEvent.target;
-    console.log(dltButton)
 
     /* "parentNode"는 부모태그를 반환하며 "dltEvent(button)"의 부모태그(ul)를 "liDltButton"변수에 저장한다. */
     const liDltButton = dltButton.parentNode;
-    console.log(liDltButton)
 
-    /* "remove"메소드를 사용하여 "menuTodoBox"태그의 자식태그를 삭제한다. */
-    menuTodoBox.remove(liDltButton);
+    /* "removeChild"메소드를 사용하여 "menuTodoBox"태그의 자식태그를 삭제한다. */
+    menuTodoBox.removeChild(liDltButton);
 
     /* 로컬 스토리지에서 삭제 기능 고차함수(선택한 것) */
-    arrayLocalStorage = arrayLocalStorage.filter((addTodoData) => addTodoData.id !== (liDltButton.id));
+    arrayLocalStorage = arrayLocalStorage.filter((addTodoData) => addTodoData.id !== Number(liDltButton.id));
 
     /* 로컬 스토리지에 KEY:Todo라는 명칭으로 "addLocalStorage"저장된 값을 JSON으로 변환하여 저장 */
-    localStorage.setItem(todoValue, JSON.stringify(arrayLocalStorage));
+    localStorage.setItem(todoKeyValue, JSON.stringify(arrayLocalStorage));
 }
 
 
@@ -124,6 +122,6 @@ function onAddBtnOnClick(event) {
 }
 
 
-
+loadTodoLocalStorage();
 /* 이벤트 리스너 선언 : 버튼 클릭시 입력된 내용 추가 이벤트 리스너(Test) -> "onAddBtnOnClick"함수가 실행됨 */
 btnTodoSubmit.addEventListener('click', onAddBtnOnClick);
