@@ -122,6 +122,8 @@ function onAddBtnOnClick(event) {
 }
 
 
+
+/* 함수 호출 : 로컬 스토리지에서 요소 삭제 함수 */
 loadTodoLocalStorage();
 /* 이벤트 리스너 선언 : 버튼 클릭시 입력된 내용 추가 이벤트 리스너(Test) -> "onAddBtnOnClick"함수가 실행됨 */
 btnTodoSubmit.addEventListener('click', onAddBtnOnClick);
