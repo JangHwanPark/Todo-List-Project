@@ -87,12 +87,12 @@ function dltTodoListClear() {
 function dltTodoListDelete(dltEvent) {
     /* "dltEvent(button)"인자를 받는다. */
     const dltButton = dltEvent.target;
-    console.log(dltButton)
+    console.log(dltButton);
 
     /* "parentNode"는 부모태그를 반환하며 "dltEvent(button)"의 부모태그(ul)를 "liDltButton"변수에 저장한다. */
     const liDltButton = dltButton.parentNode;
-    console.log(liDltButton)
 
+    /* TODO ul 전체 삭제 디버깅 */
     /* "remove"메소드를 사용하여 "menuTodoBox"태그의 자식태그를 삭제한다. */
     menuTodoBox.remove(liDltButton);
 
@@ -107,7 +107,7 @@ function dltTodoListDelete(dltEvent) {
 
 /* 함수선언 : 버튼 클릭시 실행 함수 (이벤트 리스너와 연동) */
 function onAddBtnOnClick(event) {
-    /* Submit시 새로고침 방지 */
+    /* Submit 시 새로고침 방지 */
     event.preventDefault()
 
     /* inputTodoText(input 태그)의 입력값을 "addTodoData"변수에 저장 */
@@ -124,6 +124,10 @@ function onAddBtnOnClick(event) {
 }
 
 
-
-/* 이벤트 리스너 선언 : 버튼 클릭시 입력된 내용 추가 이벤트 리스너(Test) -> "onAddBtnOnClick"함수가 실행됨 */
-btnTodoSubmit.addEventListener('click', onAddBtnOnClick);
+function start(){
+    loadTodoLocalStorage();
+    console.log(loadTodoLocalStorage);
+    /* 이벤트 리스너 선언 : 버튼 클릭시 입력된 내용 추가 이벤트 리스너(Test) -> "onAddBtnOnClick"함수가 실행됨 */
+    btnTodoSubmit.addEventListener('click', onAddBtnOnClick);
+}
+start();
