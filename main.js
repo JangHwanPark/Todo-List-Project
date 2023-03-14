@@ -42,10 +42,10 @@ function onAddListLocalStorage(addTodoData) {
     /*  "value: addTodoData" , "id: 배열(addLocalStorage)길이 + 1" 객체 형태로 변수 todoData에 저장 */
     const todoData = { value: addTodoData, id: arrayLocalStorage.length + 1 };
 
-    /* "addLocalStorage"배열에 todoData값을 push함 */
+    /* "addLocalStorage"배열에 todoData 값 을 push 함 */
     arrayLocalStorage.push(todoData);
 
-    /* 로컬 스토리지에 KEY:Todo라는 명칭으로 "addLocalStorage"저장된 값을 JSON으로 변환하여 저장 */
+    /* 로컬 스토리지에 KEY:Todo라는 명칭으로 "addLocalStorage"저장된 값을 JSON 으로 변환하여 저장 */
     localStorage.setItem(todoValue, JSON.stringify(arrayLocalStorage));
 }
 
@@ -107,7 +107,7 @@ function dltTodoListDelete(dltEvent) {
 
 /* 함수선언 : 버튼 클릭시 실행 함수 (이벤트 리스너와 연동) */
 function onAddBtnOnClick(event) {
-    /* Submit시 새로고침 방지 */
+    /* Submit 시 새로고침 방지 */
     event.preventDefault()
 
     /* inputTodoText(input 태그)의 입력값을 "addTodoData"변수에 저장 */
